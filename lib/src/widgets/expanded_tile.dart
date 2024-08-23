@@ -308,10 +308,9 @@ class _ExpandedTileState extends State<ExpandedTile> with SingleTickerProviderSt
           //============================//
           //S1  -- Content
           widget.disableAnimation!
-              ? Container(
-                  child: !_isExpanded
-                      ? null
-                      : Material(
+              ? Offstage(
+                  offstage: !_isExpanded,
+                  child: Material(
                           color: widget.theme!.contentBackgroundColor,
                           shape: _isExpanded && widget.theme?.fullExpandedBorder != null ? null : widget.theme?.contentBorder,
                           borderRadius: _isExpanded && widget.theme?.fullExpandedBorder != null
@@ -335,10 +334,9 @@ class _ExpandedTileState extends State<ExpandedTile> with SingleTickerProviderSt
                   duration: widget.expansionDuration!,
                   curve: widget.expansionAnimationCurve!,
                   reverseDuration: widget.expansionDuration!,
-                  child: Container(
-                    child: !_isExpanded
-                        ? null
-                        : Material(
+                  child: Offstage(
+                    offstage: !_isExpanded,
+                    child: Material(
                             color: widget.theme!.contentBackgroundColor,
                             shape: _isExpanded && widget.theme?.fullExpandedBorder != null ? null : widget.theme?.contentBorder,
                             borderRadius: _isExpanded && widget.theme?.fullExpandedBorder != null && widget.footer == null
